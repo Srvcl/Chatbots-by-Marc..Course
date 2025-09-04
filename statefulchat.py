@@ -15,6 +15,10 @@ def main():
         if user_input.lower() in {"exit", "quit"}:
             print("Goodbye!")
             break
+        # Show conversation context (the last response id and model) without calling the API
+        if user_input.strip().lower() == "context":
+            print(f"Context -> previous_response_id: {previous_response_id}, model: {model}")
+            continue
         params = {
             "model": model,
             "input": user_input,
